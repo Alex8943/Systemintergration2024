@@ -1,0 +1,9 @@
+<MyInfo>
+    <name>Alexander</name>
+    <age>24</age>
+    <hobbies>
+        <hobby>Programming</hobby>
+        <hobby>Music</hobby>
+        <hobby>Reading</hobby>
+    </hobbies>
+</MyInfo>
