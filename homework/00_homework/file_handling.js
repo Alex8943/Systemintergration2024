@@ -85,6 +85,8 @@ function parseCSVToJson() {
         console.error("Error with csv file: ", error);
     }
 }
+
+
 function parseXmlToJson() {
     try {
         const filePath = '../my_files/my.xml';
