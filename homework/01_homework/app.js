@@ -26,7 +26,8 @@ app.get("/csv", (req, res) => {
 app.get("/json", (req, res) => {
     try {
         const jsonResult = parseJsonToTxt();
-        res.send(jsonResult);
+        const person = { name: "John", age: 30, city: "New York"}
+        res.send(person);
     } catch (error) {
         console.error("Error with JSON file: ", error);
         res.status(500).json({ error: "Internal Server Error" });
