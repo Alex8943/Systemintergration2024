@@ -115,9 +115,9 @@ function parseXmlToJson() {
             removeNestetArrays(jsonResult);
         });
 
-        const formattedJsonString = JSON.stringify(jsonResult, null, 2);
+        //const formattedJsonString = JSON.stringify(jsonResult, null, 2);
 
-        return formattedJsonString;
+        return JSON.stringify(jsonResult, null, 2);
 
     } catch (error) {
         console.error("Error with xml file: ", error);

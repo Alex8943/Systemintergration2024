@@ -55,6 +55,37 @@ app.get("/yaml", (req, res) => {
     }
 });
 
-app.listen(3000, () => {
-    console.log('Listening on port 3000');
+app.get("/python/txt", async (req, res) => {
+    const response = await fetch('http://localhost:8000/p/txt');
+    const result = await response.json();
+    res.send(result);
+});
+
+app.get("/python/csv", async (req, res) => {
+    const response = await fetch('http://localhost:8000/p/csv');
+    const result = await response.json();
+    res.send(result);
+});
+
+app.get("/python/json", async (req, res) => {
+    const response = await fetch('http://localhost:8000/p/json');
+    const result = await response.json();
+    res.send(result);
+});
+
+app.get("/python/xml", async (req, res) => {
+    const response = await fetch('http://localhost:8000/p/xml');
+    const result = await response.json();
+    res.send(result);
+});
+
+app.get("/python/yaml", async (req, res) => {
+    const response = await fetch('http://localhost:8000/p/yaml');
+    const result = await response.json();
+    res.send(result);
+});
+
+
+app.listen(8080, () => {
+    console.log('Listening on port 8080');
 })
