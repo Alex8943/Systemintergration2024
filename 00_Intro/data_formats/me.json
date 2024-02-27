@@ -1,7 +1,7 @@
 {
     "name": "Alexander",
     "age": 24,
-    "Hoby": [
+    "hobbies": [
         "Tennis", 
         "Programming", 
         "Reading"
