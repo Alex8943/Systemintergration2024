@@ -1,0 +1,50 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSE Example</title>
+</head>
+<body>
+    <h1>Status</h1>
+    <div id="sse-status"></div>    
+
+    <h1>SSE example data</h1>
+    <div id="sse-data"></div>
+
+
+    
+
+    <script>
+        const sseDataElement = document.getElementById('sse-data');
+        const eventSource = new EventSource('/sse');
+
+
+        eventSource.onmessage = (event) => {
+            sseDataElement.innerHTML += `<p>${event.data}</p>`;
+           
+            if(sseDataElement.innerHTML.lenght > 5){
+                document.getElementById('sse-data').textContent = "Connection was closed"
+            }
+        };
+
+        eventSource.addEventListener('open', (event) => {
+            document.getElementById('sse-status').textContent = 'Connected';
+           
+        });
+
+        eventSource.addEventListener('error', (event) => {
+            if (event.target.readyState === EventSource.CLOSED) {
+                document.getElementById('sse-status').textContent = 'Connection was closed';
+            } else if (event.target.readyState === EventSource.CONNECTING) {
+                document.getElementById('sse-status').textContent = 'Connecting...';
+            } else {
+                document.getElementById('sse-status').textContent = 'Error';
+            }
+        });
+
+       
+    </script>
+</body>
+</html>
