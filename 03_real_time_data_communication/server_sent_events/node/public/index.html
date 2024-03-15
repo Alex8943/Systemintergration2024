@@ -23,7 +23,7 @@
 
         const serverSentStatusDiv = document.getElementById("server-sent_status");
         const serverSentTimeDiv = document.getElementById("server-sent_time");
-        
+
         const eventSource = new EventSource("/synchronize-time");
 
         eventSource.addEventListener("message", (event) => {

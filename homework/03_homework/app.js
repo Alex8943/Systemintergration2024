@@ -19,10 +19,8 @@ app.get('/sse', (req, res) => {
             clearInterval(intervalId);
             res.write('data: Connnection is closed\n\n');
             res.end();
-        }
-        
+        }        
     }, 1000);
-
 
     req.on('close', () => {
         clearInterval(intervalId);
