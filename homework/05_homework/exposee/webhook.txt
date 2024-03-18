@@ -30,5 +30,81 @@
   {
     "eventType": "message received",
     "callbackURL": "http://localhost:8080"
+  },
+  {
+    "eventType": "message sent",
+    "callbackURL": "http://example.com/message-sent-webhook"
+  },
+  {
+    "eventType": "message received",
+    "callbackURL": "http://example.com/message-received-webhook"
+  },
+  {
+    "eventType": "message received",
+    "callbackURL": "http://localhost:8080"
+  },
+  {
+    "eventType": "message received",
+    "callbackURL": "http://localhost:8080"
+  },
+  {
+    "eventType": "message received",
+    "callbackURL": "http://localhost:8080"
+  },
+  {
+    "eventType": "message received",
+    "callbackURL": "http://localhost:8080"
+  },
+  {
+    "eventType": "message received",
+    "callbackURL": "http://localhost:8080"
+  },
+  {
+    "eventType": "message sent",
+    "callbackURL": "http://example.com/message-sent-webhook"
+  },
+  {
+    "eventType": "message received",
+    "callbackURL": "http://example.com/message-received-webhook"
+  },
+  {
+    "eventType": "message received",
+    "callbackURL": "http://localhost:8080"
+  },
+  {
+    "eventType": "message sent",
+    "callbackURL": "http://example.com/message-sent-webhook"
+  },
+  {
+    "eventType": "message received",
+    "callbackURL": "http://example.com/message-received-webhook"
+  },
+  {
+    "eventType": "message reciewed",
+    "callbackURL": "https://example.com/webhook"
+  },
+  {
+    "eventType": "message received",
+    "callbackURL": "http://localhost:8080"
+  },
+  {
+    "eventType": "message sent",
+    "callbackURL": "http://example.com/message-sent-webhook"
+  },
+  {
+    "eventType": "message received",
+    "callbackURL": "http://example.com/message-received-webhook"
+  },
+  {
+    "eventType": "message sent",
+    "callbackURL": "http://example.com/message-sent-webhook"
+  },
+  {
+    "eventType": "message received",
+    "callbackURL": "http://example.com/message-received-webhook"
+  },
+  {
+    "eventType": "message received",
+    "callbackURL": "http://localhost:8080"
   }
 ]

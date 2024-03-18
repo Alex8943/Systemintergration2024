@@ -7,11 +7,11 @@ const PORT = 8080;
 
 app.use(bodyParser.json());
 
-// Example usage of registerWebhook function
-const exposeeUrl = 'http://localhost:3000'; // Corrected Exposee server URL
+
+const exposeeUrl = 'https://alex.serveo.net';
 const registrationData = {
-    eventType: 'message received', // Use the correct event type
-    callbackURL: 'http://localhost:8080' // Endpoint in the Integrator server to handle webhook notifications
+    eventType: 'message received',
+    callbackURL: 'http://localhost:8080' 
 };
 registerWebhook(exposeeUrl, registrationData);
 
