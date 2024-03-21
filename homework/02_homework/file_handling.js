@@ -18,7 +18,7 @@ function removeNestetArrays(obj) {
 }
 
 
-function parseTxtToJson() {
+export function parseTxtToJson() {
     try {
         const filePath = '../my_files/my.txt';
         const txtContent = fs.readFileSync(filePath, 'utf8');
@@ -44,7 +44,7 @@ function parseTxtToJson() {
 }
 
 
-function parseYamlToJson(){
+export function parseYamlToJson(){
     try{
         const filePath = '../my_files/my.yaml';
         const yamlContent = fs.readFileSync(filePath, 'utf8');
@@ -64,7 +64,7 @@ function parseYamlToJson(){
     }
 }
 
-function parseCSVToJson() {
+export function parseCSVToJson() {
     try {
 
         const filePath = '../my_files/my.csv';
@@ -96,7 +96,7 @@ function parseCSVToJson() {
     }
 }
 
-function parseXmlToJson() {
+export function parseXmlToJson() {
     try {
         const filePath = '../my_files/my.xml';
         const xmlContent = fs.readFileSync(filePath, 'utf8');
@@ -115,9 +115,9 @@ function parseXmlToJson() {
             removeNestetArrays(jsonResult);
         });
 
-        //const formattedJsonString = JSON.stringify(jsonResult, null, 2);
+        const formattedJsonString = JSON.stringify(jsonResult, null, 2);
 
-        return JSON.stringify(jsonResult, null, 2);
+        return formattedJsonString;
 
     } catch (error) {
         console.error("Error with xml file: ", error);
@@ -137,14 +137,4 @@ export function parseJsonToTxt(){
     }
 }
 
-
-
-
-export const parsers = {
-    parseTxtToJson, 
-    parseYamlToJson, 
-    parseCSVToJson,
-    parseXmlToJson,
-    parseJsonToTxt
-}
 
