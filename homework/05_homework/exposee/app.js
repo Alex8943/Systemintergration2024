@@ -12,13 +12,13 @@ app.use(bodyParser.json());
 webhooks.loadWebhooksFromFile();
 
 try {
-    webhooks.registerWebhook('message sent', 'http://example.com/message-sent-webhook');
+    webhooks.registerWebhook('message sent', 'http://www.dr.dk');
   } catch (error) {
     console.error('Error registering webhook:', error.message);
   }
 
   try {
-    webhooks.registerWebhook('message received', 'http://example.com/message-received-webhook');
+    webhooks.registerWebhook('message received', 'http://www.dr.dk');
   } catch (error) {
     console.error('Error registering webhook:', error.message);
   }
