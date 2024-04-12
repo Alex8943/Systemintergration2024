@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket Thing1</title>
+</head>
+<body>
+    <h1>Client 2</h1>
+    <button onclick="sendMessage()">Send Msg</button>
+    <!-- When this message is send, show it: -->
+    <div id="sentMessage"></div>
+    <div id="output"></div>
+</body>
+<script>
+    // Create WebSocket connection.
+    const socket = new WebSocket('ws://localhost:8080');
+
+    // Connection opened
+    socket.addEventListener('open', function (event) {
+        console.log('Connected to WS Server')
+    });
+
+    // Listen for messages
+    socket.addEventListener('message', function (event) {
+        console.log('Message from server: ', event.data);
+    });
+
+    socket.onmessage = function(event) {
+        const outputDiv = document.getElementById('output');
+        outputDiv.innerHTML += '<p>' + event.data + '</p>';
+    };
+
+
+    const sendMessage = () => {
+        const message = 'Hello From Clien 2!';
+        socket.send(message);
+        
+        // Display the sent message in the HTML
+        const sentMessageDiv = document.getElementById('sentMessage');
+        sentMessageDiv.innerText = 'Message: ' + message;
+    }
+</script>
+</html>
