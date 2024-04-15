@@ -12,13 +12,13 @@ app.use(bodyParser.json());
 webhooks.loadWebhooksFromFile();
 
 try {
-    webhooks.registerWebhook('message sent', 'http://www.dr.dk');
+    webhooks.registerWebhook('message sent', 'https://localhost:8080');
   } catch (error) {
     console.error('Error registering webhook:', error.message);
   }
 
   try {
-    webhooks.registerWebhook('message received', 'http://www.dr.dk');
+    webhooks.registerWebhook('message received', 'https://localhost:8080');
   } catch (error) {
     console.error('Error registering webhook:', error.message);
   }

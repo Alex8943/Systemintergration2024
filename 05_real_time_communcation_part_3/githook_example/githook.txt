@@ -1,0 +1,14 @@
+Choose the Type of Hook: Decide which Git event you want to trigger your hook. For this example, let's create a pre-commit hook, which runs before a commit is made.
+
+Navigate to the Git Hooks Directory: Inside your Git repository, navigate to the .git/hooks directory. Here, you'll find a collection of sample hook scripts (with .sample extension) that you can use as a reference.
+
+Create the Hook Script: Inside the .git/hooks directory, create a new file named pre-commit (without any file extension). This will be your hook script.
+
+Write the Hook Script: Open the pre-commit file in a text editor, and add the following content:
+
+bash
+Copy code
+#!/bin/bash
+
+# Print "Hello, world!" message
+echo "Hello, world!"

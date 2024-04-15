@@ -54,6 +54,13 @@ function triggerWebhooks() {
   });
 }
 
+
+// Simulate sending 'message sent' event every 4 seconds
+setInterval(() => {
+  triggerWebhooks();
+}, 4000); // 4000 milliseconds = 4 seconds
+
+
 export { 
     loadWebhooksFromFile, 
     registerWebhook,
