@@ -13,6 +13,7 @@
         const ws = new WebSocket("ws://localhost:8080");
 
         ws.onopen = () => {
+            console.log("Welcome")
             console.log("Connected to the server");
         };
 
