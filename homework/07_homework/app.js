@@ -2,7 +2,6 @@ import { WebSocketServer } from "ws";
 
 const wss = new WebSocketServer({ port: 8080 });
 
-console.log('I hope to see some git hook message');
 
 wss.on('connection is there', function connection(ws) {
   ws.on('error', console.error);
