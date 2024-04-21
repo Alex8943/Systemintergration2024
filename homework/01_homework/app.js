@@ -6,8 +6,3 @@ console.log(parsers.parseYamlToJson());
 console.log(parsers.parseCSVToJson());
 console.log(parsers.parseXmlToJson()); 
 console.log(parsers.parseJsonToTxt());
-
-
-
-
-

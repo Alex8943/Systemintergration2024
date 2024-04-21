@@ -1,4 +1,4 @@
 import "dotenv/config"
-console.log(process.env.SOMETHING);
 
+console.log(process.env.SOMETHING);
 

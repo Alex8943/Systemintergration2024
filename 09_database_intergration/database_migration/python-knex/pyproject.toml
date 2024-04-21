@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "python-knex"
+version = "0.1.0"
+description = ""
+authors = ["Alex8943 <65241585+Alex8943@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "python_knex"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.110.1"
+uvicorn = "^0.29.0"
+alembic = "^1.13.1"
+sqlalchemy = "^2.0.29"
+pymysql = "^1.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
