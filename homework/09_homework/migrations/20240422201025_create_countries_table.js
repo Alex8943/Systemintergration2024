@@ -3,9 +3,7 @@
  * @returns { Promise<void> }
  */
 exports.up = async function(knex) {
-
-    const hasCountryTable = await knex.schema.hasTable('country');
-        await knex.schema.createTable('country', function(table){
+    await knex.schema.createTable('country', function(table){
             table.increments('id').primary();
             table.string('name').notNullable();
             table.timestamps(true, true);

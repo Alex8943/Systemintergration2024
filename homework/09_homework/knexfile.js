@@ -1,9 +1,11 @@
 const dotenv = require('dotenv');
+const Knex = require('knex');
 dotenv.config();
 
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
+
 
 module.exports = {
     development: {
@@ -17,4 +19,10 @@ module.exports = {
       }
   }
 };
+
+
+
+
+
+
   
