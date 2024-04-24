@@ -10,11 +10,13 @@ async function testDBConnection() {
     Model.knex(knex);
 
     try {
-        await Countries.query();
-        await Users.query();
+        const countryResult = await Countries.query();
+        const usersResult = await Users.query();
     
-        console.log('Both database connections are successful.');
+        console.log('Shop database connection is successful.');
 
+        console.log('Users: ', usersResult);
+        console.log('Countries: ', countryResult);
     } catch (error) {
         console.error('Connection failed:', error);
     } finally {
