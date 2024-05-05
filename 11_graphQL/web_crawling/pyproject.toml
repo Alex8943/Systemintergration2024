@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "web-crawling"
+version = "0.1.0"
+description = ""
+authors = ["Alex8943 <65241585+Alex8943@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "web_crawling"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+scraping = "^0.0.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

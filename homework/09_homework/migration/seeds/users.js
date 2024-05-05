@@ -10,12 +10,5 @@ exports.seed = async function(knex) {
     {id: 2, name: 'Alice', lastname: "Alicon"},
     {id: 3, name: 'Bob', lastname: "Bobson"},
   ]);
-
-  await knex('country').del()
-  await knex('country').insert([
-    {id: 1, name: 'USA'},
-    {id: 2, name: 'Canada'},
-    {id: 3, name: 'Mexico'},
-  ]);
   
 };
