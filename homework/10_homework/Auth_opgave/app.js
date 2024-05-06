@@ -3,7 +3,8 @@ import express from 'express';
 import "./auth.js";
 import passport from 'passport';
 import session from 'express-session';
-
+import __dirname from 'path';
+import path from 'path';
 
 const app = express();
 app.use(session({ secret: 'cats', resave: false, saveUninitialized: true }));
