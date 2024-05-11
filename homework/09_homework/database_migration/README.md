@@ -4,4 +4,4 @@
 
 ## - 2 Run: 
 
-### $ knex migrate:latest --env production
+## knex migrate:latest --env production
