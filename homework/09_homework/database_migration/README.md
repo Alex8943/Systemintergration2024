@@ -4,4 +4,29 @@
 
 ## - 2 Run: 
 
-## knex migrate:latest --env production
+```bash
+knex migrate:latest --env develupment
+```
+
+## - 3 Run: 
+
+```bash
+knex seed:run
+```
+
+## - 4 run: 
+
+```bash
+knex migrate:latest --env production
+```
+
+
+## - 5 run: 
+
+```bash
+node index.js
+```
+
+
+
+

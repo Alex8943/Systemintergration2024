@@ -122,6 +122,14 @@ async function migrateFromShopToNewShop() {
             }
         }
 
+        //Delete all tables from old db
+        for(const table of tableNames){
+            await old_connection.promise().query(`DROP TABLE ${table}`);
+            console.log(`Table ${table} deleted from shop db`);
+        }
+
+        console.log("Migration successful");
+
     }catch(error){
         console.error("Migration failed: ", error);
     }
