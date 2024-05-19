@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe Payment</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Stripe Payment</h1>
+    <form id="payment-form">
+        <div id="card-element" class="StripeElement"></div>
+        <button type="submit">Pay</button>
+    </form>
+    <div id="payment-message"></div>
+
+    <script>
+        const stripe = Stripe("pk_test_51PIA7SADMz7HRNTUVpxk1SyQzCuYbZmyz3lFbjqAvnaKVUrcpa1XPvtWc3vTaw5VMKPKtdqH2wy0e1WiPcuUSaBJ00Oqh8e1a2");
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const { clientSecret } = await fetch('http://localhost:3000/create-payment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ amount: 2000, currency: 'usd' }) // Adjust amount and currency as needed
+            }).then(response => response.json());
+
+            const elements = stripe.elements();
+            const cardElement = elements.create('card');
+            cardElement.mount('#card-element');
+
+            const form = document.getElementById('payment-form');
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+                    payment_method: {
+                        card: cardElement,
+                        billing_details: {
+                            name: 'Test User'
+                        }
+                    }
+                });
+
+                if (error) {
+                    document.getElementById('payment-message').textContent = error.message;
+                } else if (paymentIntent.status === 'succeeded') {
+                    document.getElementById('payment-message').textContent = 'Payment succeeded!';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
