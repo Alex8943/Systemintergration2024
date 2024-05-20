@@ -9,11 +9,14 @@
 </head>
 <body>
     <h1>Stripe Payment</h1>
-    <form id="payment-form">
-        <div id="card-element" class="StripeElement"></div>
-        <button type="submit">Pay</button>
-    </form>
-    <div id="payment-message"></div>
+    <div class="container">
+        <form id="payment-form">
+            <div id="card-element" class="StripeElement"></div>
+            <button type="submit">Pay</button>
+        </form>
+        <div id="payment-message"></div>
+    </div>
+    
 
     <script>
         const stripe = Stripe("pk_test_51PIA7SADMz7HRNTUVpxk1SyQzCuYbZmyz3lFbjqAvnaKVUrcpa1XPvtWc3vTaw5VMKPKtdqH2wy0e1WiPcuUSaBJ00Oqh8e1a2");
