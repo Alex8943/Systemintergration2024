@@ -1,4 +1,4 @@
-import { parseTxtToJson, parseCSVToJson, parseXmlToJson, parseYamlToJson, parseJsonToTxt } from './file_handling.js';
+import { parseTxtToJson, parseCSVToJson, parseXmlToJson, parseYamlToJson, parseJson } from './file_handling.js';
 import express from 'express';
 
 const app = express();
@@ -25,9 +25,8 @@ app.get("/csv", (req, res) => {
 
 app.get("/json", (req, res) => {
     try {
-        const jsonResult = parseJsonToTxt();
-        const person = { name: "John", age: 30, city: "New York"}
-        res.send(person);
+        const jsonResult = parseJson();
+        res.send(jsonResult);
     } catch (error) {
         console.error("Error with JSON file: ", error);
         res.status(500).json({ error: "Internal Server Error" });

@@ -10,27 +10,27 @@ from file_handling import (
 
 app = FastAPI()
 
-@app.get("/serverA/txt")
+@app.get("/node/txt")
 def read_txt():
     response = requests.get("http://localhost:8080/txt").json()
     return response
 
-@app.get("/serverA/csv")
+@app.get("/node/csv")
 def read_csv():
     response = requests.get("http://localhost:8080/csv").json()
     return response
 
-@app.get("/serverA/json")
+@app.get("/node/json")
 def read_json():
     response = requests.get("http://localhost:8080/json").json()
     return response
 
-@app.get("/serverA/xml")
+@app.get("/node/xml")
 def read_xml():
     response = requests.get("http://localhost:8080/xml").json()
     return response
 
-@app.get("/serverA/yaml")
+@app.get("/node/yaml")
 def read_yaml():
     response = requests.get("http://localhost:8080/yaml").json()
     return response

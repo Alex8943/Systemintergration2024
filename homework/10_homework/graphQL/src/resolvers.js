@@ -1,3 +1,6 @@
+//Resolver file works like CRUD (with all the operations), but also as a seed data file, becouse of of all the hard coded data inserted
+
+
 const authors = [
     { id: '1', name: 'J.K. Rowling' },
     { id: '2', name: 'J.R.R. Tolkien' },

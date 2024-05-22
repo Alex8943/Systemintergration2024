@@ -125,12 +125,10 @@ export function parseXmlToJson() {
 }
 
 
-export function parseJsonToTxt(){
+export function parseJson(){
     try{
         const filePath = '../my_files/my.json';
-        const jsonContent = fs.readFileSync(filePath, 'utf8');
-        const obj = JSON.parse(jsonContent);
-        const result = Object.entries(obj).map(([key, value]) => `${key}: ${value}`).join('\n');
+        const result = fs.readFileSync(filePath, 'utf8');
         return result;
     }catch(error){
         console.error("Error with json file: ", error);
