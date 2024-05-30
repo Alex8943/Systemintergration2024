@@ -3,16 +3,6 @@ import csv
 import yaml
 import xml.etree.ElementTree as ET
 
-def remove_nested_arrays(obj):
-    for key, value in obj.items():
-        if isinstance(value, list) and len(value) == 1:
-            obj[key] = value[0]
-            
-            # Convert numeric strings to numbers
-            if isinstance(obj[key], str) and obj[key].replace('.', '', 1).isdigit():
-                obj[key] = float(obj[key])
-        elif isinstance(value, dict):
-            remove_nested_arrays(value)
 
 def parse_txt_to_json():
     try:
@@ -90,3 +80,15 @@ def parse_json_to_txt():
 
     except Exception as error:
         print("Error with json file:", error)
+
+def remove_nested_arrays(obj):
+    for key, value in obj.items():
+        if isinstance(value, list) and len(value) == 1:
+            obj[key] = value[0]
+            
+            # Convert numeric strings to numbers
+            if isinstance(obj[key], str) and obj[key].replace('.', '', 1).isdigit():
+                obj[key] = float(obj[key])
+        elif isinstance(value, dict):
+            remove_nested_arrays(value)
+

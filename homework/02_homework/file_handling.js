@@ -18,7 +18,7 @@ function removeNestetArrays(obj) {
 }
 
 
-export function parseTxtToJson() {
+function parseTxtToJson() {
     try {
         const filePath = '../my_files/my.txt';
         const txtContent = fs.readFileSync(filePath, 'utf8');
@@ -44,7 +44,7 @@ export function parseTxtToJson() {
 }
 
 
-export function parseYamlToJson(){
+function parseYamlToJson(){
     try{
         const filePath = '../my_files/my.yaml';
         const yamlContent = fs.readFileSync(filePath, 'utf8');
@@ -63,40 +63,47 @@ export function parseYamlToJson(){
         console.error("Error with yaml file: ", error)
     }
 }
-
 export function parseCSVToJson() {
     try {
-
         const filePath = '../my_files/my.csv';
         const csvContent = fs.readFileSync(filePath, 'utf8');
-
-        const jsonResult = [];
-
         const lines = csvContent.split('\n');
-        const headers = lines[0].split(',');
-        
-        for (let i = 1; i < lines.length; i++) {
-            const currentLine = lines[i].split(',');
-            const obj = {};
-            for (let j = 0; j < headers.length; j++) {
-                obj[headers[j]] = currentLine[j];
 
-                if (headers[j].includes('\r')) {
-                    obj[headers[j].replace('\r', '')] = obj[headers[j]];
-                    delete obj[headers[j]];
-                }
-            }
-            jsonResult.push(obj);
+        const result = [];
+
+        const headers = lines[0].split(',').map(part => part.trim());
+
+        for (let i = 1; i < lines.length; i++) {
+            const line = lines[i];
+            const values = line.split(',').map(part => part.trim());
+
+            // Create an object with key-value pairs for the current line
+            const row = {};
+            headers.forEach((header, index) => {
+                row[header] = values[index];
+            });
+
+            // Add the object to the result array
+            result.push(row);
         }
-    
-        return JSON.stringify(jsonResult, null, 2);
+
+        // If there are no rows in the CSV file, return an empty object
+        if (result.length === 0) {
+            return '{}';
+        }
+
+        // Get the JSON string representation of the first object in the result array
+        const jsonResult = JSON.stringify(result[0], null, 2);
+
+        return jsonResult;
 
     } catch (error) {
         console.error("Error with csv file: ", error);
     }
 }
 
-export function parseXmlToJson() {
+
+function parseXmlToJson() {
     try {
         const filePath = '../my_files/my.xml';
         const xmlContent = fs.readFileSync(filePath, 'utf8');
@@ -115,9 +122,9 @@ export function parseXmlToJson() {
             removeNestetArrays(jsonResult);
         });
 
-        const formattedJsonString = JSON.stringify(jsonResult, null, 2);
+        //const formattedJsonString = JSON.stringify(jsonResult, null, 2);
 
-        return formattedJsonString;
+        return JSON.stringify(jsonResult, null, 2);
 
     } catch (error) {
         console.error("Error with xml file: ", error);
@@ -125,14 +132,24 @@ export function parseXmlToJson() {
 }
 
 
-export function parseJson(){
+export function parseJsonToTxt(){
     try{
         const filePath = '../my_files/my.json';
-        const result = fs.readFileSync(filePath, 'utf8');
-        return result;
+        const jsonResult = fs.readFileSync(filePath, 'utf8');
+        return jsonResult;
     }catch(error){
         console.error("Error with json file: ", error);
     }
 }
 
+
+
+
+export const parsers = {
+    parseTxtToJson, 
+    parseYamlToJson, 
+    parseCSVToJson,
+    parseXmlToJson,
+    parseJsonToTxt
+}
 
