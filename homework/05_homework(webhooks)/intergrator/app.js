@@ -26,3 +26,21 @@ setInterval(() => {
 app.listen(PORT, () => {
     console.log(`Server is running on localhost:${PORT}`);
 });
+
+
+/*
+
+DK
+dd/mm/yyyy
+01/02/2024
+
+
+USA: 
+mm/dd/yyyy
+02/01/2024
+
+
+YYYY-mm-dd
+
+
+*/

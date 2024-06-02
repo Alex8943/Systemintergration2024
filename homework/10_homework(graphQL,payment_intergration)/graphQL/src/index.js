@@ -8,34 +8,38 @@ import { WebSocketServer } from 'ws';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import express from 'express';
 
+
 const app = express();
 const httpServer = createServer(app);
-
 const typeDefs = readFileSync('./schema.graphql', 'utf-8');
+
+//Pub handling subscription
 const pubsub = new PubSub();
 
-
+//Makes the schema UI that i see when i type localhost:4000/graphql
 const schema = makeExecutableSchema({
   typeDefs,
   resolvers,
 });
 
+//Sets up the Apollo
 const server = new ApolloServer({
   schema,
   context: () => ({ pubsub }),
 });
 
-
-
-server.start().then(() => { //Starts the Apollo server and then sets it up with Express middleware.
-  server.applyMiddleware({ app });
-
-  const wsServer = new WebSocketServer({ //Creates a WebSocket server for handling subscriptions.
+//Sets the apollo server up 
+server.start().then(() => {
+  server.applyMiddleware({ app }); //Intergrate Apollo with express
+  const wsServer = new WebSocketServer({
     server: httpServer,
     path: '/graphql',
   });
 
-  useServer({ schema, context: () => ({ pubsub }) }, wsServer); // Integrates the WebSocket server with the GraphQL schema and context.
+  //Intergrates websocket with GraphQL
+  useServer({ schema, context: () => (
+    { pubsub }
+  )}, wsServer);
 
   httpServer.listen(4000, () => {
     console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);

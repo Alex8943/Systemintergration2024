@@ -1,4 +1,5 @@
-//Resolver file works like CRUD (with all the operations), but also as a seed data file, becouse of of all the hard coded data inserted
+//Resolver file works like CRUD 
+//but also as a seed data file, becouse of coded data inserted
 
 
 const authors = [

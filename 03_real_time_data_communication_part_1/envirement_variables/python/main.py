@@ -1,7 +1,3 @@
-from fastapi import FastAPI
-
-app = FastAPI()
-
 from dotenv import dotenv_values, load_dotenv
 
 # Example 1
