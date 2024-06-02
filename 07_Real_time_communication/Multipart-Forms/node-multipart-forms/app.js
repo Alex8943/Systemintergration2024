@@ -14,7 +14,10 @@ app.post("/form", (req, res) => {
 
 app.post('/fileform', upload.single('file'), (req, res) => {
     console.log(req.body);
-    res.send({ });
+    res.send({ 
+        file: req.file, 
+        body: req.body
+    });
 });
 
 
