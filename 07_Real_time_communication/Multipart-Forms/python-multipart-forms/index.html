@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FastAPI Form Test</title>
+</head>
+<body>
+
+    <h2>Basic Form</h2>
+    <form action="http://localhost:8000/form" method="post">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password (at least 8 characters):</label><br>
+        <input type="password" id="password" name="password" minlength="8" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>File Upload Form</h2>
+    <form action="http://localhost:8000/fileform" method="post" enctype="multipart/form-data">
+        <label for="file">Select file:</label><br>
+        <input type="file" id="file" name="file" required><br>
+        <label for="description">Description (optional):</label><br>
+        <input type="text" id="description" name="description"><br><br>
+        <input type="submit" value="Upload">
+    </form>
+
+</body>
+</html>

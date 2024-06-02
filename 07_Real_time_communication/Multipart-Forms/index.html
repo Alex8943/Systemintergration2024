@@ -29,5 +29,30 @@
         <input type="submit" value="Send File">
     </form>
 
+
+    <script>
+        const fileInput = document.querySelector('input[type="file"]');
+        
+        fileInput.addEventListener("change", (event) => {
+            const file = event.target.files[0];
+
+            const validTypes = ["image/png", "image/svg"];
+            if (!validTypes.includes(file.type)) {
+                alert("Not a valid type");
+                fileInput.value = "";
+                return;
+            }
+
+            const maxSize = 10 * 1024 * 1024; // 10MB
+            if (file.size > maxSize) {
+                alert(`File too big, max size: ${maxSize}`);
+                fileInput.value = "";
+                return;
+            }
+
+        });
+
+    </script>
+
 </body>
 </html>
